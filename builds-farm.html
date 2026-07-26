@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Farm Builds — Wraeclast Hub</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  .page-head { padding: 48px 0 28px; border-bottom: 1px solid var(--border-soft); }
+  .page-head h1 { font-size: clamp(28px, 4vw, 40px); }
+  .page-head p { color: var(--muted); max-width: 62ch; margin-top: 12px; }
+
+  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; padding: 24px 0; align-items: center; }
+  .filter-btn {
+    font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .04em;
+    padding: 8px 14px; background: var(--surface); border: 1px solid var(--border-soft); color: var(--muted); cursor: pointer;
+  }
+  .filter-btn:hover { color: var(--fg); border-color: var(--border); }
+  .filter-btn.active { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+  .filter-count { margin-left: auto; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+
+  .build-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; padding-bottom: 64px; }
+  .build-card { display: flex; flex-direction: column; gap: 14px; }
+  .build-card.hidden { display: none; }
+  .build-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+  .build-top h3 { font-size: 20px; }
+  .build-top .class-line { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .budget { font-family: var(--font-mono); font-size: 11px; color: var(--muted); text-align: right; white-space: nowrap; }
+  .budget b { display: block; color: var(--rar-rare); font-size: 14px; }
+  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .build-card p.desc { margin: 0; color: var(--fg); font-size: 14.5px; }
+  .build-card p.why { margin: 0; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border-soft); padding-top: 12px; }
+  .build-card p.why b { color: var(--fg); }
+
+  @media (max-width: 820px) { .build-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="mark"></span>Wraeclast Hub</a>
+    <ul class="navlinks">
+      <li><a href="builds-league-start.html">League Start</a></li>
+      <li><a href="builds-farm.html">Farm Builds</a></li>
+      <li><a href="guide-leveling.html">Leveling</a></li>
+      <li><a href="guide-atlas.html">Atlas</a></li>
+      <li><a href="todo.html">To-Do</a></li>
+      <li><a href="bookmarks.html">Bookmarks</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">02 · Builds</div>
+    <h1>Farm Builds</h1>
+    <p>Endgame setups for once your league starter has capped out — built around a specific farm target rather than "does everything." Expect more currency invested than the league-start list.</p>
+  </div>
+
+  <div class="filter-bar" role="group" aria-label="Filter by farm target">
+    <button class="filter-btn active" data-filter="all">All · 6</button>
+    <button class="filter-btn" data-filter="bossing">Bossing</button>
+    <button class="filter-btn" data-filter="maps">Juiced Maps</button>
+    <button class="filter-btn" data-filter="delirium">Delirium</button>
+    <span class="filter-count" id="result-count">Showing 6</span>
+  </div>
+
+  <div class="build-grid" id="build-grid">
+
+    <article class="card build-card" data-cat="maps">
+      <div class="build-top">
+        <div><h3>Trickster Blade Vortex</h3><div class="class-line">Shadow → Trickster</div></div>
+        <div class="budget">Budget<b>Medium</b></div>
+      </div>
+      <div class="tag-row">
+        <span class="pill pill-gem">Blade Vortex</span>
+        <span class="pill pill-normal">Full Clear</span>
+      </div>
+      <p class="desc">Blade Vortex's overlapping hits shred packed maps, and Trickster's Ghost Dance plus movement speed keep you weaving through Delirium fog or juiced rare packs without slowing down.</p>
+      <p class="why"><b>Why farm this:</b> among the fastest full-map-clear speeds available, which is what actually drives currency-per-hour on juiced maps.</p>
+    </article>
+
+    <article class="card build-card" data-cat="delirium">
+      <div class="build-top">
+        <div><h3>Elementalist Spark Stacking</h3><div class="class-line">Witch → Elementalist</div></div>
+        <div class="budget">Budget<b>Medium</b></div>
+      </div>
+      <div class="tag-row">
+        <span class="pill pill-gem">Spark</span>
+        <span class="pill pill-magic">Elemental</span>
+      </div>
+      <p class="desc">Elementalist's golem stacking and penetration nodes push Spark's chaining projectiles into both dense pack clear and respectable single-target — a rare hybrid for a caster.</p>
+      <p class="why"><b>Why farm this:</b> golem uptime keeps scaling passively, making it forgiving in the visual chaos of a fully juiced Delirium mirror.</p>
+    </article>
+
+    <article class="card build-card" data-cat="bossing">
+      <div class="build-top">
+        <div><h3>Assassin Explosive Arrow</h3><div class="class-line">Shadow → Assassin</div></div>
+        <div class="budget">Budget<b>High</b></div>
+      </div>
+      <div class="tag-row">
+        <span class="pill pill-gem">Explosive Arrow</span>
+        <span class="pill pill-unique">Single Target</span>
+      </div>
+      <p class="desc">Stacking Explosive Arrow fuses on a boss detonates for enormous single-hit damage — Assassin's crit multiplier and Elusive uptime turn it into one of the hardest-hitting bow setups against uber bosses.</p>
+      <p class="why"><b>Why farm this:</b> built specifically for boss rotations (Maven, Elder, Shaper-tier) rather than trash clear — pair it with a separate map-clear skill if you juice maps too.</p>
+    </article>
+
+    <article class="card build-card" data-cat="maps delirium">
+      <div class="build-top">
+        <div><h3>Occultist Bane / Contagion</h3><div class="class-line">Witch → Occultist</div></div>
+        <div class="budget">Budget<b>Medium</b></div>
+      </div>
+      <div class="tag-row">
+        <span class="pill pill-gem">Bane</span>
+        <span class="pill pill-unique">Chaos DoT</span>
+      </div>
+      <p class="desc">Contagion spreads Essence Drain's damage-over-time across a whole pack in one cast, and Occultist's curse effect and chaos damage bonuses make Bane a one-button clear button.</p>
+      <p class="why"><b>Why farm this:</b> chaos DoT ramps up over a second or two, which reads great against juiced rare-density maps where everything is dying anyway.</p>
+    </article>
+
+    <article class="card build-card" data-cat="maps">
+      <div class="build-top">
+        <div><h3>Slayer Cyclone</h3><div class="class-line">Duelist → Slayer</div></div>
+        <div class="budget">Budget<b>Medium</b></div>
+      </div>
+      <div class="tag-row">
+        <span class="pill pill-gem">Cyclone</span>
+        <span class="pill pill-rare">Melee Leech</span>
+      </div>
+      <p class="desc">Slayer's overleech and "cannot be stunned while leeching" turn Cyclone into a nearly unkillable spin-to-win, sustained entirely by the corpses you're already deleting.</p>
+      <p class="why"><b>Why farm this:</b> extremely low attention-cost per map — good pick if you're farming currency over long juiced sessions and want to not think about defense.</p>
+    </article>
+
+    <article class="card build-card" data-cat="bossing maps">
+      <div class="build-top">
+        <div><h3>Champion Lightning Strike</h3><div class="class-line">Duelist → Champion</div></div>
+        <div class="budget">Budget<b>High</b></div>
+      </div>
+      <div class="tag-row">
+        <span class="pill pill-gem">Lightning Strike</span>
+        <span class="pill pill-normal">Tanky Hybrid</span>
+      </div>
+      <p class="desc">Champion's permanent Fortify and taunt make this the build you bring when you want map clear and boss damage from the same six-link, at the cost of a lower raw ceiling than specialists above.</p>
+      <p class="why"><b>Why farm this:</b> the safest all-rounder here — good for pushing juiced maps with dangerous mods without swapping skills for the boss room.</p>
+    </article>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><strong>Wraeclast Hub</strong> — a fan-made companion site. Not affiliated with or endorsed by Grinding Gear Games.</div>
+    <div class="mono">Path of Exile © Grinding Gear Games</div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.build-card');
+    var countEl = document.getElementById('result-count');
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        buttons.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.dataset.filter;
+        var shown = 0;
+        cards.forEach(function (c) {
+          var cats = (c.dataset.cat || '').split(' ');
+          var match = f === 'all' || cats.indexOf(f) !== -1;
+          c.classList.toggle('hidden', !match);
+          if (match) shown++;
+        });
+        countEl.textContent = 'Showing ' + shown;
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas Completion Guide — Wraeclast Hub</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  .page-head { padding: 48px 0 28px; border-bottom: 1px solid var(--border-soft); }
+  .page-head h1 { font-size: clamp(28px, 4vw, 40px); }
+  .page-head p { color: var(--muted); max-width: 62ch; margin-top: 12px; }
+
+  .progress-bar-wrap { margin: 28px 0 40px; }
+  .progress-label { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .progress-label b { color: var(--accent); }
+  .progress-track { height: 6px; background: var(--surface); border: 1px solid var(--border-soft); }
+  .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width .2s ease; }
+
+  .stage { margin-bottom: 22px; }
+  .stage-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .stage-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent); border: 1px solid var(--border); padding: 3px 9px; }
+  .stage-head h3 { font-size: 18px; }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--border-soft);
+    background: var(--surface);
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+  .step:hover { border-color: var(--border); }
+  .step input { margin-top: 3px; accent-color: var(--accent); width: 16px; height: 16px; flex: none; }
+  .step .txt b { display: block; font-size: 14.5px; color: var(--fg); }
+  .step .txt span { font-size: 13px; color: var(--muted); }
+  .step.done { opacity: .55; }
+  .step.done .txt b { text-decoration: line-through; }
+
+  .reset-row { display:flex; justify-content:flex-end; padding: 8px 0 60px; }
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="mark"></span>Wraeclast Hub</a>
+    <ul class="navlinks">
+      <li><a href="builds-league-start.html">League Start</a></li>
+      <li><a href="builds-farm.html">Farm Builds</a></li>
+      <li><a href="guide-leveling.html">Leveling</a></li>
+      <li><a href="guide-atlas.html">Atlas</a></li>
+      <li><a href="todo.html">To-Do</a></li>
+      <li><a href="bookmarks.html">Bookmarks</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">04 · Guide</div>
+    <h1>Atlas Completion Checklist</h1>
+    <p>From your first white map to your first pinnacle kill. Check items off as you go — progress is saved in this browser, so it's still here next time you sit down.</p>
+  </div>
+
+  <div class="progress-bar-wrap">
+    <div class="progress-label"><span>Atlas progress</span><b id="progress-text">0 / 12</b></div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <div id="stage-list">
+
+    <div class="stage">
+      <div class="stage-head"><span class="stage-num">01</span><h3>Open the Atlas</h3></div>
+      <label class="step"><input type="checkbox" data-id="a1"><span class="txt"><b>Defeat Kitava at the end of Act 10</b><span>Your first map drops automatically and the Atlas of Worlds screen unlocks.</span></span></label>
+      <label class="step"><input type="checkbox" data-id="a2"><span class="txt"><b>Run your first white-tier map</b><span>Start at the lowest tier available — the Atlas fills in nearby maps as you complete each one.</span></span></label>
+    </div>
+
+    <div class="stage">
+      <div class="stage-head"><span class="stage-num">02</span><h3>Build sustain</h3></div>
+      <label class="step"><input type="checkbox" data-id="b1"><span class="txt"><b>Learn the map vendor recipe</b><span>Three maps of the same tier sell together for one map of the next tier up — your baseline sustain before any drop bonuses.</span></span></label>
+      <label class="step"><input type="checkbox" data-id="b2"><span class="txt"><b>Start spending Atlas Passive Tree points</b><span>Earned from completing maps and Kirac's missions — prioritize nodes matching your farm style (bossing, clear speed, or quantity).</span></span></label>
+      <label class="step"><input type="checkbox" data-id="b3"><span class="txt"><b>Take Kirac's map missions regularly</b><span>They're free Atlas points and a steady trickle of map drops without extra risk.</span></span></label>
+    </div>
+
+    <div class="stage">
+      <div class="stage-head"><span class="stage-num">03</span><h3>Voidstones &amp; the Conquerors</h3></div>
+      <label class="step"><input type="checkbox" data-id="c1"><span class="txt"><b>Find and defeat Baran, Al-Hezmin, Veritania, and Drox</b><span>The four Conquerors of the Atlas appear on your map device once their influence rises high enough on the Atlas.</span></span></label>
+      <label class="step"><input type="checkbox" data-id="c2"><span class="txt"><b>Collect all four Voidstones</b><span>Each Conqueror kill awards one — together they raise your accessible map tier cap and unlock the Maven.</span></span></label>
+      <label class="step"><input type="checkbox" data-id="c3"><span class="txt"><b>Reach map tier 16</b><span>The practical ceiling for "fully juiced" farming once all four Voidstones are socketed.</span></span></label>
+    </div>
+
+    <div class="stage">
+      <div class="stage-head"><span class="stage-num">04</span><h3>Pinnacle bosses</h3></div>
+      <label class="step"><input type="checkbox" data-id="d1"><span class="txt"><b>Awaken the Maven</b><span>Unlocks Maven's Crucible fights and the ability to have her "witness" other pinnacle bosses for bonus rewards.</span></span></label>
+      <label class="step"><input type="checkbox" data-id="d2"><span class="txt"><b>Kill your first pinnacle boss</b><span>Sirus, Awakener of Worlds; the Maven herself; Eater of Worlds; Searing Exarch — each has its own unlock chain worth a full guide on its own.</span></span></label>
+      <label class="step"><input type="checkbox" data-id="d3"><span class="txt"><b>Push into Uber-difficulty fights</b><span>Once a pinnacle boss feels comfortable on normal difficulty, its Uber variant is the next real currency and challenge check.</span></span></label>
+      <label class="step"><input type="checkbox" data-id="d4"><span class="txt"><b>Set your next league goal</b><span>At this point you're steering your own farm — head back to the <a href="builds-farm.html" style="color:var(--accent);">Farm Builds</a> list if you want to switch specialties.</span></span></label>
+    </div>
+
+  </div>
+
+  <div class="reset-row">
+    <button class="btn btn-ghost" id="reset-btn">Reset checklist</button>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><strong>Wraeclast Hub</strong> — a fan-made companion site. Not affiliated with or endorsed by Grinding Gear Games.</div>
+    <div class="mono">Path of Exile © Grinding Gear Games</div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+  (function () {
+    var KEY = 'wh_atlas_progress';
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('.step input'));
+    var total = boxes.length;
+    var fill = document.getElementById('progress-fill');
+    var text = document.getElementById('progress-text');
+
+    function render() {
+      var state = Store.get(KEY, {});
+      var done = 0;
+      boxes.forEach(function (b) {
+        var checked = !!state[b.dataset.id];
+        b.checked = checked;
+        b.closest('.step').classList.toggle('done', checked);
+        if (checked) done++;
+      });
+      text.textContent = done + ' / ' + total;
+      fill.style.width = (total ? (done / total * 100) : 0) + '%';
+    }
+
+    boxes.forEach(function (b) {
+      b.addEventListener('change', function () {
+        var state = Store.get(KEY, {});
+        state[b.dataset.id] = b.checked;
+        Store.set(KEY, state);
+        render();
+      });
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', function () {
+      Store.set(KEY, {});
+      render();
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wraeclast Hub — Path of Exile Companion</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5.5vw, 60px);
+    line-height: 1.05;
+    max-width: 14ch;
+  }
+  .hero p.lede {
+    max-width: 56ch;
+    color: var(--muted);
+    font-size: 17px;
+    margin-top: 18px;
+  }
+  .stat-strip {
+    display: flex;
+    gap: 36px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .stat-strip .stat b {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 28px;
+    color: var(--accent);
+  }
+  .stat-strip .stat span {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .hero-actions { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+
+  .grid-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding: 56px 0 12px;
+  }
+  .nav-card {
+    text-decoration: none;
+    color: var(--fg);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 168px;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .nav-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .nav-card .idx { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .nav-card h3 { font-size: 19px; }
+  .nav-card p { margin: 0; color: var(--muted); font-size: 14px; flex: 1; }
+  .nav-card .go { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+  .nav-card .live-count { font-family: var(--font-mono); font-size: 12px; color: var(--rar-rare); }
+
+  @media (max-width: 900px) {
+    .grid-nav { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 620px) {
+    .grid-nav { grid-template-columns: 1fr; }
+    .stat-strip { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="mark"></span>Wraeclast Hub</a>
+    <ul class="navlinks">
+      <li><a href="builds-league-start.html">League Start</a></li>
+      <li><a href="builds-farm.html">Farm Builds</a></li>
+      <li><a href="guide-leveling.html">Leveling</a></li>
+      <li><a href="guide-atlas.html">Atlas</a></li>
+      <li><a href="todo.html">To-Do</a></li>
+      <li><a href="bookmarks.html">Bookmarks</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero" data-od-id="hero">
+    <div class="eyebrow">Wraeclast · League Companion</div>
+    <h1>Builds, guides, and your run — in one panel.</h1>
+    <p class="lede">Not another wiki mirror. Wraeclast Hub is a working desk for your league: vetted league-start and farm builds, act-by-act leveling notes, an Atlas completion checklist, and a to-do list that remembers what you were doing.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="builds-league-start.html">Start a league build</a>
+      <a class="btn btn-ghost" href="guide-atlas.html">Atlas checklist</a>
+    </div>
+    <div class="stat-strip">
+      <div class="stat"><b class="mono">6</b><span>League-start builds</span></div>
+      <div class="stat"><b class="mono">6</b><span>Farm builds</span></div>
+      <div class="stat"><b class="mono">2</b><span>Core guides</span></div>
+      <div class="stat"><b class="mono">8</b><span>Bookmarked tools</span></div>
+    </div>
+  </section>
+
+  <section class="wrap" data-od-id="section-nav">
+    <div class="section-head">
+      <h2>Jump in</h2>
+      <span class="mono" style="color:var(--muted); font-size:13px;">6 sections</span>
+    </div>
+    <div class="grid-nav">
+      <a class="card nav-card" href="builds-league-start.html">
+        <span class="idx mono">01</span>
+        <h3>League-Start Builds</h3>
+        <p>Six budget-safe builds tuned for act clear and the first map tiers, one per attribute archetype.</p>
+        <span class="go">View builds →</span>
+      </a>
+      <a class="card nav-card" href="builds-farm.html">
+        <span class="idx mono">02</span>
+        <h3>Farm Builds</h3>
+        <p>Endgame currency, bossing, and juiced-map setups for once your league starter has capped out.</p>
+        <span class="go">View builds →</span>
+      </a>
+      <a class="card nav-card" href="guide-leveling.html">
+        <span class="idx mono">03</span>
+        <h3>Leveling Guide</h3>
+        <p>Act 1 through Act 10 — waypoints, gem swaps, and the boss fights that catch new characters out.</p>
+        <span class="go">Read guide →</span>
+      </a>
+      <a class="card nav-card" href="guide-atlas.html">
+        <span class="idx mono">04</span>
+        <h3>Atlas Completion</h3>
+        <p>Atlas passive tree priorities, Voidstones, the Conquerors, and what to run before red maps.</p>
+        <span class="go">Read guide →</span>
+      </a>
+      <a class="card nav-card" href="todo.html">
+        <span class="idx mono">05</span>
+        <h3>To-Do List</h3>
+        <p>Track league goals — leveling, atlas, farming, trading — saved locally in this browser.</p>
+        <span class="go live-count" id="todo-count">Loading…</span>
+      </a>
+      <a class="card nav-card" href="bookmarks.html">
+        <span class="idx mono">06</span>
+        <h3>Bookmarks</h3>
+        <p>Path of Building, poe.ninja, trade, and crafting tools — plus room to pin your own.</p>
+        <span class="go" id="bookmark-count">8 tools saved</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><strong>Wraeclast Hub</strong> — a fan-made companion site. Not affiliated with or endorsed by Grinding Gear Games.</div>
+    <div class="mono">Path of Exile © Grinding Gear Games</div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+  (function () {
+    var tasks = Store.get('wh_todo_tasks', []);
+    var open = tasks.filter(function (t) { return !t.done; }).length;
+    var el = document.getElementById('todo-count');
+    if (el) el.textContent = tasks.length ? (open + ' open task' + (open === 1 ? '' : 's') + ' →') : 'Set your first goal →';
+
+    var bm = Store.get('wh_bookmarks_custom', []);
+    var bEl = document.getElementById('bookmark-count');
+    if (bEl) bEl.textContent = (8 + bm.length) + ' tools saved →';
+  })();
+</script>
+</body>
+</html>

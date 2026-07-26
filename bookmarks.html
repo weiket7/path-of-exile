@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bookmarks — Wraeclast Hub</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  .page-head { padding: 48px 0 28px; border-bottom: 1px solid var(--border-soft); }
+  .page-head h1 { font-size: clamp(28px, 4vw, 40px); }
+  .page-head p { color: var(--muted); max-width: 62ch; margin-top: 12px; }
+
+  .toolbar { display: flex; gap: 10px; padding: 28px 0 8px; flex-wrap: wrap; }
+  .toolbar input[type=text] {
+    flex: 1;
+    min-width: 200px;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    color: var(--fg);
+    padding: 11px 14px;
+    font-size: 14px;
+  }
+  .toolbar input:focus { outline: none; border-color: var(--accent); }
+
+  .section-label { font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin: 32px 0 14px; }
+
+  .tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .tool-card { display: flex; flex-direction: column; gap: 10px; }
+  .tool-card.hidden { display: none; }
+  .tool-top { display: flex; align-items: center; gap: 12px; }
+  .tool-icon {
+    width: 38px; height: 38px; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg-elevated); border: 1px solid var(--border-soft);
+    font-family: var(--font-mono); font-weight: 700; color: var(--accent);
+  }
+  .tool-card h4 { font-size: 15.5px; }
+  .tool-card p { margin: 0; font-size: 13px; color: var(--muted); flex: 1; }
+  .tool-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .tool-foot a { font-family: var(--font-mono); font-size: 12px; color: var(--accent); text-decoration: none; }
+  .tool-foot a:hover { text-decoration: underline; }
+  .tool-foot .del {
+    background: none; border: 1px solid var(--border-soft); color: var(--muted);
+    width: 26px; height: 26px; cursor: pointer; font-family: var(--font-mono); font-size: 12px;
+  }
+  .tool-foot .del:hover { border-color: var(--rar-unique); color: var(--rar-unique); }
+
+  .add-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .add-form input {
+    background: var(--surface); border: 1px solid var(--border-soft); color: var(--fg);
+    padding: 11px 14px; font-size: 14px;
+  }
+  .add-form input:focus { outline: none; border-color: var(--accent); }
+
+  .empty-custom { padding: 24px; text-align: center; color: var(--muted); border: 1px dashed var(--border-soft); grid-column: 1 / -1; }
+
+  @media (max-width: 900px) { .tool-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px) {
+    .tool-grid { grid-template-columns: 1fr; }
+    .add-form { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="mark"></span>Wraeclast Hub</a>
+    <ul class="navlinks">
+      <li><a href="builds-league-start.html">League Start</a></li>
+      <li><a href="builds-farm.html">Farm Builds</a></li>
+      <li><a href="guide-leveling.html">Leveling</a></li>
+      <li><a href="guide-atlas.html">Atlas</a></li>
+      <li><a href="todo.html">To-Do</a></li>
+      <li><a href="bookmarks.html">Bookmarks</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">06 · Tool</div>
+    <h1>Bookmarks</h1>
+    <p>The community tools you'll actually reach for mid-session — build planning, market data, crafting math, and trade. Pin your own below the defaults.</p>
+  </div>
+
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="Search bookmarks…">
+  </div>
+
+  <div class="section-label" id="default-count">Core tools · 8</div>
+  <div class="tool-grid" id="default-grid">
+    <!-- populated by script from DEFAULT_TOOLS -->
+  </div>
+
+  <div class="section-label" id="custom-count">Your bookmarks · 0</div>
+  <div class="tool-grid" id="custom-grid"></div>
+
+  <form class="add-form" id="add-form">
+    <input type="text" id="bm-name" placeholder="Tool name" required maxlength="40">
+    <input type="url" id="bm-url" placeholder="https://…" required>
+    <button type="submit" class="btn btn-primary">Add bookmark</button>
+  </form>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><strong>Wraeclast Hub</strong> — a fan-made companion site. Not affiliated with or endorsed by Grinding Gear Games.</div>
+    <div class="mono">Path of Exile © Grinding Gear Games</div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+  var DEFAULT_TOOLS = [
+    { name: 'Path of Building Community', url: 'https://pathofbuilding.community/', desc: 'Offline build planner — DPS, defenses, and passive tree in one place.' },
+    { name: 'poe.ninja', url: 'https://poe.ninja/', desc: 'Live currency and item pricing plus build stats aggregated from real characters.' },
+    { name: 'Official Trade Site', url: 'https://www.pathofexile.com/trade', desc: 'The source-of-truth trade search — pair it with the overlay below.' },
+    { name: 'Awakened PoE Trade', url: 'https://github.com/SnosMe/awakened-poe-trade', desc: 'In-game price-check overlay that reads item text on hover.' },
+    { name: 'Craft of Exile', url: 'https://www.craftofexile.com/', desc: 'Crafting simulator for planning currency spend before you touch real items.' },
+    { name: 'PoEDB', url: 'https://poedb.tw/', desc: 'Raw game data — gems, mods, monster stats, straight from the client.' },
+    { name: 'PoE Wiki', url: 'https://www.poewiki.net/', desc: 'Community wiki for mechanics, quests, and item lore.' },
+    { name: 'FilterBlade', url: 'https://www.filterblade.xyz/', desc: 'Loot filter generator and customizer for every strictness level.' }
+  ];
+
+  (function () {
+    var CAT_KEY = 'wh_bookmarks_custom';
+    var defaultGrid = document.getElementById('default-grid');
+    var customGrid = document.getElementById('custom-grid');
+    var customCount = document.getElementById('custom-count');
+    var search = document.getElementById('search');
+
+    function initials(name) {
+      return name.split(' ').filter(Boolean).slice(0, 2).map(function (w) { return w[0]; }).join('').toUpperCase();
+    }
+
+    function card(tool, removable) {
+      var el = document.createElement('article');
+      el.className = 'card tool-card';
+      el.dataset.name = tool.name.toLowerCase();
+      el.innerHTML =
+        '<div class="tool-top"><div class="tool-icon">' + initials(tool.name) + '</div><h4></h4></div>' +
+        '<p></p>' +
+        '<div class="tool-foot"><a target="_blank" rel="noopener noreferrer"></a>' +
+        (removable ? '<button type="button" class="del" title="Remove">✕</button>' : '') + '</div>';
+      el.querySelector('h4').textContent = tool.name;
+      el.querySelector('p').textContent = tool.desc || '';
+      var a = el.querySelector('a');
+      a.href = tool.url;
+      a.textContent = 'Open ↗';
+      if (removable) {
+        el.querySelector('.del').addEventListener('click', function () {
+          var list = Store.get(CAT_KEY, []).filter(function (t) { return t.url !== tool.url || t.name !== tool.name; });
+          Store.set(CAT_KEY, list);
+          renderCustom();
+        });
+      }
+      return el;
+    }
+
+    DEFAULT_TOOLS.forEach(function (t) { defaultGrid.appendChild(card(t, false)); });
+
+    function renderCustom() {
+      var list = Store.get(CAT_KEY, []);
+      customCount.textContent = 'Your bookmarks · ' + list.length;
+      customGrid.innerHTML = '';
+      if (!list.length) {
+        var empty = document.createElement('div');
+        empty.className = 'empty-custom';
+        empty.textContent = 'Nothing pinned yet — add a tool below.';
+        customGrid.appendChild(empty);
+        return;
+      }
+      list.forEach(function (t) { customGrid.appendChild(card(t, true)); });
+      applyFilter();
+    }
+
+    document.getElementById('add-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('bm-name').value.trim();
+      var url = document.getElementById('bm-url').value.trim();
+      if (!name || !url) return;
+      var list = Store.get(CAT_KEY, []);
+      list.push({ name: name, url: url, desc: 'Custom bookmark' });
+      Store.set(CAT_KEY, list);
+      e.target.reset();
+      renderCustom();
+    });
+
+    function applyFilter() {
+      var q = search.value.trim().toLowerCase();
+      document.querySelectorAll('.tool-card').forEach(function (c) {
+        c.classList.toggle('hidden', q.length > 0 && c.dataset.name.indexOf(q) === -1);
+      });
+    }
+    search.addEventListener('input', applyFilter);
+
+    renderCustom();
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>To-Do List — Wraeclast Hub</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  .page-head { padding: 48px 0 28px; border-bottom: 1px solid var(--border-soft); }
+  .page-head h1 { font-size: clamp(28px, 4vw, 40px); }
+  .page-head p { color: var(--muted); max-width: 62ch; margin-top: 12px; }
+
+  .composer {
+    display: grid;
+    grid-template-columns: 1fr 150px 130px auto;
+    gap: 10px;
+    margin: 28px 0 20px;
+  }
+  .composer input[type=text], .composer select {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    color: var(--fg);
+    padding: 12px 14px;
+    font-size: 14px;
+    font-family: var(--font-body);
+  }
+  .composer input[type=text]:focus, .composer select:focus { outline: none; border-color: var(--accent); }
+
+  .toolbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding-bottom: 18px; }
+  .tab { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; padding: 7px 13px; background: var(--surface); border: 1px solid var(--border-soft); color: var(--muted); cursor: pointer; }
+  .tab.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .cat-filter { margin-left: auto; background: var(--surface); border: 1px solid var(--border-soft); color: var(--fg); padding: 7px 10px; font-family: var(--font-mono); font-size: 12px; }
+  .remaining { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+
+  .task-list { display: flex; flex-direction: column; gap: 8px; padding-bottom: 60px; }
+  .task {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+  }
+  .task input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); flex: none; }
+  .task .body { flex: 1; min-width: 0; }
+  .task .body b { display: block; font-size: 14.5px; color: var(--fg); word-break: break-word; }
+  .task.done .body b { text-decoration: line-through; color: var(--muted); }
+  .task .meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
+  .task .del {
+    flex: none;
+    background: none;
+    border: 1px solid var(--border-soft);
+    color: var(--muted);
+    width: 30px; height: 30px;
+    cursor: pointer;
+    font-family: var(--font-mono);
+  }
+  .task .del:hover { border-color: var(--rar-unique); color: var(--rar-unique); }
+
+  .empty { padding: 48px 16px; text-align: center; color: var(--muted); border: 1px dashed var(--border-soft); }
+
+  @media (max-width: 760px) {
+    .composer { grid-template-columns: 1fr; }
+    .cat-filter { margin-left: 0; width: 100%; }
+    .toolbar { flex-direction: column; align-items: stretch; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="mark"></span>Wraeclast Hub</a>
+    <ul class="navlinks">
+      <li><a href="builds-league-start.html">League Start</a></li>
+      <li><a href="builds-farm.html">Farm Builds</a></li>
+      <li><a href="guide-leveling.html">Leveling</a></li>
+      <li><a href="guide-atlas.html">Atlas</a></li>
+      <li><a href="todo.html">To-Do</a></li>
+      <li><a href="bookmarks.html">Bookmarks</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">05 · Tool</div>
+    <h1>League To-Do List</h1>
+    <p>Track goals across leveling, the Atlas, farming, and trading. Everything here is saved locally in this browser — nothing is sent anywhere.</p>
+  </div>
+
+  <form class="composer" id="composer">
+    <input type="text" id="task-input" placeholder="e.g. Level Chieftain to 68, buy 6-link chest…" required maxlength="140">
+    <select id="task-category">
+      <option value="Leveling">Leveling</option>
+      <option value="Atlas">Atlas</option>
+      <option value="Farming">Farming</option>
+      <option value="Trading">Trading</option>
+      <option value="Other">Other</option>
+    </select>
+    <select id="task-priority">
+      <option value="Low">Low priority</option>
+      <option value="Medium" selected>Medium priority</option>
+      <option value="High">High priority</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Add task</button>
+  </form>
+
+  <div class="toolbar">
+    <button class="tab active" data-filter="all">All</button>
+    <button class="tab" data-filter="active">Active</button>
+    <button class="tab" data-filter="done">Completed</button>
+    <select class="cat-filter" id="cat-filter">
+      <option value="all">All categories</option>
+      <option value="Leveling">Leveling</option>
+      <option value="Atlas">Atlas</option>
+      <option value="Farming">Farming</option>
+      <option value="Trading">Trading</option>
+      <option value="Other">Other</option>
+    </select>
+    <span class="remaining" id="remaining-count">0 open</span>
+  </div>
+
+  <div class="task-list" id="task-list"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><strong>Wraeclast Hub</strong> — a fan-made companion site. Not affiliated with or endorsed by Grinding Gear Games.</div>
+    <div class="mono">Path of Exile © Grinding Gear Games</div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+  (function () {
+    var KEY = 'wh_todo_tasks';
+    var listEl = document.getElementById('task-list');
+    var remainingEl = document.getElementById('remaining-count');
+    var statusFilter = 'all';
+    var catFilter = 'all';
+
+    var PRIORITY_PILL = { Low: 'pill-gem', Medium: 'pill-magic', High: 'pill-unique' };
+
+    function uid() { return 't' + Math.floor(Math.random() * 1e9) + '_' + listEl.children.length; }
+
+    function load() { return Store.get(KEY, []); }
+    function save(tasks) { Store.set(KEY, tasks); }
+
+    function render() {
+      var tasks = load();
+      var filtered = tasks.filter(function (t) {
+        if (statusFilter === 'active' && t.done) return false;
+        if (statusFilter === 'done' && !t.done) return false;
+        if (catFilter !== 'all' && t.category !== catFilter) return false;
+        return true;
+      });
+
+      remainingEl.textContent = tasks.filter(function (t) { return !t.done; }).length + ' open';
+
+      if (!filtered.length) {
+        listEl.innerHTML = '<div class="empty">' + (tasks.length ? 'Nothing matches this filter.' : 'No goals yet — add your first one above.') + '</div>';
+        return;
+      }
+
+      listEl.innerHTML = '';
+      filtered.slice().reverse().forEach(function (t) {
+        var row = document.createElement('label');
+        row.className = 'task' + (t.done ? ' done' : '');
+        row.innerHTML =
+          '<input type="checkbox" ' + (t.done ? 'checked' : '') + '>' +
+          '<span class="body"><b></b><span class="meta">' +
+          '<span class="pill pill-normal">' + t.category + '</span>' +
+          '<span class="pill ' + (PRIORITY_PILL[t.priority] || 'pill-normal') + '">' + t.priority + '</span>' +
+          '</span></span>' +
+          '<button type="button" class="del" title="Delete">✕</button>';
+        row.querySelector('b').textContent = t.text;
+
+        row.querySelector('input').addEventListener('change', function () {
+          var all = load();
+          var item = all.find(function (x) { return x.id === t.id; });
+          if (item) { item.done = !item.done; save(all); render(); }
+        });
+        row.querySelector('.del').addEventListener('click', function (e) {
+          e.preventDefault();
+          save(load().filter(function (x) { return x.id !== t.id; }));
+          render();
+        });
+
+        listEl.appendChild(row);
+      });
+    }
+
+    document.getElementById('composer').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var input = document.getElementById('task-input');
+      var text = input.value.trim();
+      if (!text) return;
+      var tasks = load();
+      tasks.push({
+        id: uid(),
+        text: text,
+        category: document.getElementById('task-category').value,
+        priority: document.getElementById('task-priority').value,
+        done: false
+      });
+      save(tasks);
+      input.value = '';
+      render();
+    });
+
+    document.querySelectorAll('.tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.tab').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        statusFilter = btn.dataset.filter;
+        render();
+      });
+    });
+
+    document.getElementById('cat-filter').addEventListener('change', function (e) {
+      catFilter = e.target.value;
+      render();
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>

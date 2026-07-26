@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leveling Guide — Wraeclast Hub</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  .page-head { padding: 48px 0 28px; border-bottom: 1px solid var(--border-soft); }
+  .page-head h1 { font-size: clamp(28px, 4vw, 40px); }
+  .page-head p { color: var(--muted); max-width: 62ch; margin-top: 12px; }
+
+  .checklist-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 32px 0 8px;
+  }
+  .checklist-card .card { font-size: 13.5px; color: var(--muted); }
+  .checklist-card .card b { display: block; color: var(--fg); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+
+  .timeline { padding: 40px 0 64px; display: flex; flex-direction: column; gap: 10px; }
+
+  details.act {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  }
+  details.act[open] { border-color: var(--border); }
+  details.act summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  details.act summary::-webkit-details-marker { display: none; }
+  .act-tag { font-family: var(--font-mono); font-size: 11px; color: var(--accent); border: 1px solid var(--border); padding: 3px 8px; flex: none; }
+  .act-title { flex: 1; }
+  .act-title h3 { font-size: 16.5px; }
+  .act-title span { font-size: 12.5px; color: var(--muted); }
+  .act-level { font-family: var(--font-mono); font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .chev { transition: transform .15s ease; color: var(--muted); flex: none; }
+  details.act[open] .chev { transform: rotate(90deg); }
+
+  .act-body { padding: 0 22px 22px; border-top: 1px solid var(--border-soft); margin-top: 4px; }
+  .act-body ul { margin: 14px 0; padding-left: 18px; color: var(--fg); font-size: 14px; }
+  .act-body li { margin-bottom: 6px; }
+  .boss-note {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: color-mix(in oklch, var(--rar-unique) 12%, var(--surface));
+    border: 1px solid color-mix(in oklch, var(--rar-unique) 45%, transparent);
+    font-size: 13px;
+  }
+  .boss-note b { color: var(--rar-unique); }
+
+  @media (max-width: 760px) {
+    .checklist-card { grid-template-columns: 1fr; }
+    .act-level { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="mark"></span>Wraeclast Hub</a>
+    <ul class="navlinks">
+      <li><a href="builds-league-start.html">League Start</a></li>
+      <li><a href="builds-farm.html">Farm Builds</a></li>
+      <li><a href="guide-leveling.html">Leveling</a></li>
+      <li><a href="guide-atlas.html">Atlas</a></li>
+      <li><a href="todo.html">To-Do</a></li>
+      <li><a href="bookmarks.html">Bookmarks</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">03 · Guide</div>
+    <h1>Leveling: Act 1 → Act 10</h1>
+    <p>The campaign hasn't changed shape in years — five milestone bands cover the whole run, from the Twilight Strand to the second Kitava fight. Tap a band to expand it.</p>
+  </div>
+
+  <div class="checklist-card">
+    <div class="card"><b>Gem priority</b>Take every skill-gem quest reward over vendor gems — questing gems are free and often better than what you'd buy.</div>
+    <div class="card"><b>Resistances</b>You don't need to cap 75% until you reach maps. Keep an eye on the character sheet from Act 6 onward.</div>
+    <div class="card"><b>Respec points</b>Several quests across the acts grant passive skill refund points — save them for after you settle your leveling gem setup.</div>
+  </div>
+
+  <div class="timeline">
+
+    <details class="act" open>
+      <summary>
+        <span class="act-tag mono">A1–A2</span>
+        <span class="act-title"><h3>The Twilight Strand to the Vaal Ruins</h3><span>Learn the acts, pick up your first support gems</span></span>
+        <span class="act-level mono">Lv 1–22</span>
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </summary>
+      <div class="act-body">
+        <ul>
+          <li>Clear side areas early — extra monster density is worth more XP than it costs in time while you're under-leveled.</li>
+          <li>Pick up a movement skill gem the moment it's offered; it pays for itself immediately.</li>
+          <li>Sell matching low-level items in sets of four to five for chance/alteration/transmutation orbs via vendor recipes — cheap early currency.</li>
+        </ul>
+        <div class="boss-note"><b>Boss note:</b> Merveil (end of Act 1) alternates a melee tentacle slam with a projectile wave — walk through the gap in the wave rather than running from it. Vaal Oversoul (end of Act 2) splits into three elemental clones near death; focus one down fast so its damage doesn't stack.</div>
+      </div>
+    </details>
+
+    <details class="act">
+      <summary>
+        <span class="act-tag mono">A3–A4</span>
+        <span class="act-title"><h3>Sarn to Highgate</h3><span>First real damage checks, first six-link odds</span></span>
+        <span class="act-level mono">Lv 22–40</span>
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </summary>
+      <div class="act-body">
+        <ul>
+          <li>This is where a lot of new characters first feel "squishy" — it's usually a missing resistance, not a build problem. Check your character sheet.</li>
+          <li>Piety fights twice on the way through Sarn with different elemental themes each time; swap in whatever resistance flask you're carrying.</li>
+          <li>Grab your first jewel socket and start slotting a cheap early jewel once you have one.</li>
+        </ul>
+        <div class="boss-note"><b>Boss note:</b> Dominus (end of Act 3) telegraphs a large slam — dodge it rather than tanking, since it hits far harder than anything before it. Malachai (end of Act 4) has a beam attack that tracks — keep moving instead of stopping to attack.</div>
+      </div>
+    </details>
+
+    <details class="act">
+      <summary>
+        <span class="act-tag mono">A5</span>
+        <span class="act-title"><h3>Highgate to the Templar Courts</h3><span>The first Kitava confrontation</span></span>
+        <span class="act-level mono">Lv 40–45</span>
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </summary>
+      <div class="act-body">
+        <ul>
+          <li>Shortest act on this list, but the gear you're wearing going in matters — you fight Kitava directly and lose, by design, so don't overspend on new gear right before it.</li>
+          <li>This is a natural checkpoint to do a passive respec if your early leveling tree drifted from your final build.</li>
+        </ul>
+        <div class="boss-note"><b>Boss note:</b> you are not meant to win this fight — surviving long enough matters more than damage. The story continues in Act 6.</div>
+      </div>
+    </details>
+
+    <details class="act">
+      <summary>
+        <span class="act-tag mono">A6–A9</span>
+        <span class="act-title"><h3>The corrupted continent</h3><span>Same geography, harder monsters, new side content</span></span>
+        <span class="act-level mono">Lv 45–68</span>
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </summary>
+      <div class="act-body">
+        <ul>
+          <li>You retrace Wraeclast under Kitava's corruption — familiar zones, noticeably tougher packs, and a second wave of skill-gem quest rewards.</li>
+          <li>League-specific side content (Einhar's beasts, Alva's temple, Niko's mine, and similar) starts appearing here — all optional, all worth a quick detour for extra currency and crafting materials.</li>
+          <li>Start actively watching resistances now — by Act 9 you want all three capped or close to it before you touch Act 10.</li>
+        </ul>
+        <div class="boss-note"><b>Boss note:</b> difficulty ramps steadily rather than in one big spike — if a specific zone feels unfair, it's almost always a resistance or life-pool gap.</div>
+      </div>
+    </details>
+
+    <details class="act">
+      <summary>
+        <span class="act-tag mono">A10</span>
+        <span class="act-title"><h3>Oriath and the second Kitava fight</h3><span>Campaign finale — unlocks the Atlas of Worlds</span></span>
+        <span class="act-level mono">Lv 68+</span>
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </summary>
+      <div class="act-body">
+        <ul>
+          <li>Confirm all resistances are capped and you have a flask up for whatever ailment your build is weakest to before starting the final fight.</li>
+          <li>Once Kitava is down, your first map drops automatically and the Atlas becomes available — head to <a href="guide-atlas.html" style="color:var(--accent); text-decoration:underline;">the Atlas guide</a> next.</li>
+        </ul>
+        <div class="boss-note"><b>Boss note:</b> this fight has multiple phases with escalating area attacks — this is where a real defensive layer (not just high life) starts to matter for the first time.</div>
+      </div>
+    </details>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><strong>Wraeclast Hub</strong> — a fan-made companion site. Not affiliated with or endorsed by Grinding Gear Games.</div>
+    <div class="mono">Path of Exile © Grinding Gear Games</div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
