@@ -35,6 +35,16 @@ const BUILDS: Array<Build> = [
     ],
     desc: "Self-cast Righteous Fire stacking life and fire regen — Chieftain's flat regen and fire exposure turn your own burn into your main defense layer as well as your damage.",
     why: 'almost no unique-dependent, clears acts safely, and the "regen tank" playstyle forgives under-leveled gear.',
+    creator: {
+      name: "Pohx",
+      channel: "https://www.youtube.com/@PohxKappa",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=aXDVnydIXJw",
+      written: "https://mobalytics.gg/poe/builds/pohx-righteous-fire-chieftain",
+      pob: "https://pobb.in/KMJMGblyFcI7",
+      site: "https://pohx.net/",
+    },
   },
   {
     title: "Pathfinder Toxic Rain",
@@ -215,27 +225,6 @@ const BUILDS: Array<Build> = [
     links: { youtube: "https://www.youtube.com/watch?v=fCnYDU84q18" },
   },
   {
-    title: "Slayer Ward Stacker Reave",
-    classLine: "Duelist → Slayer",
-    budget: "Med",
-    attr: "dex",
-    tags: [
-      { label: "Dexterity", pill: "wh-pill-dex" },
-      { label: "Reave", pill: "wh-pill-gem" },
-      { label: "Ward stacking", pill: "wh-pill-unique" },
-    ],
-    desc: "Ward gear replaces life as the buffer you actually rely on, and Reave widens its own area the more you keep swinging — Slayer supplies the leech and area on top.",
-    why: "the defensive layer comes from gear bases rather than the passive tree, so the tree is free to go all-in on damage.",
-    creator: {
-      name: "Taaki PoE",
-      channel: "https://www.youtube.com/@TaakiPoE",
-    },
-    links: {
-      youtube: "https://www.youtube.com/watch?v=RE_VxXFgar8&t=137s",
-      pob: "https://pobb.in/kvsngaALSeGO",
-    },
-  },
-  {
     title: "Elementalist Hexblast Ignite",
     classLine: "Witch → Elementalist",
     budget: "Low",
@@ -297,6 +286,28 @@ const BUILDS: Array<Build> = [
       written:
         "https://maxroll.gg/poe/build-guides/kinetic-fusillade-ballista-hierophant-league-starter",
       pob: "https://pobb.in/ktAkVJm59exq",
+    },
+  },
+  {
+    title: "Hierophant Explosive Arrow Ballista",
+    classLine: "Templar → Hierophant",
+    budget: "Low",
+    attr: "int",
+    tags: [
+      { label: "Intelligence", pill: "wh-pill-int" },
+      { label: "Explosive Arrow", pill: "wh-pill-gem" },
+      { label: "Totems", pill: "wh-pill-normal" },
+    ],
+    desc: "Ballista totems stack Explosive Arrow fuses on a target until they all detonate at once — Hierophant supplies the extra totems and the mana-based defences while you stay out of the blast.",
+    why: "the damage comes from totem count and gem levels rather than weapon rolls, so a league-start bow carries you deep into maps.",
+    creator: {
+      name: "POEGuy",
+      channel: "https://www.youtube.com/@POEGuy",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=kJWbSFeivHU",
+      written:
+        "https://www.poe-vault.com/guides/explosive-arrow-ballista-hierophant-build-guide",
     },
   },
   {
@@ -449,10 +460,10 @@ const BUILDS: Array<Build> = [
       channel: "https://www.youtube.com/@SaNaViXX",
     },
     links: {
-      youtube: "https://www.youtube.com/watch?v=JFsK67lgLhI&t=375s",
+      youtube: "https://www.youtube.com/watch?v=H9-aXrx93w4&t=620s",
       written:
         "https://mobalytics.gg/poe/profile/grim-key-9npusx/builds/182c4c45-176a-45d2-b1f3-c4b327cb8e58",
-      pob: "https://pobb.in/9hhL6X0xV91p",
+      pob: "https://pobb.in/3O317e8QoBv2",
       site: "https://sanavixx.com/",
     },
   },
@@ -519,12 +530,12 @@ const BUILDS: Array<Build> = [
       channel: "https://www.youtube.com/@anime.princess",
     },
     links: {
-      youtube: "https://www.youtube.com/watch?v=-ag64ohx7DI",
+      youtube: "https://www.youtube.com/watch?v=-63PxSlXIFM",
       written:
-        "https://mobalytics.gg/poe/builds/animeprincess-poisonous-concoction-of-bouncing",
+        "https://mobalytics.gg/poe/profile/animeprincess/builds/3-30-pconc-of-bouncing-atanimeprincess",
       pob: "https://pobb.in/Xb6N6JirbqBc",
     },
-    lastUpdated: 3.28,
+    lastUpdated: 3.3,
   },
   {
     title: "Elementalist Lightning Tendrils of Escalation",

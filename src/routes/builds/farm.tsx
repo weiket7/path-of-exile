@@ -57,6 +57,26 @@ const BUILDS: Array<Build> = [
       pob: 'https://pobb.in/Kvl1jpKGgk2G',
     },
   },
+  {
+    title: 'Slayer Ward Stacker Reave',
+    classLine: 'Duelist → Slayer',
+    budget: 'Med',
+    categories: ['maps'],
+    tags: [
+      { label: 'Reave', pill: 'wh-pill-gem' },
+      { label: 'Ward stacking', pill: 'wh-pill-unique' },
+    ],
+    desc: 'Ward gear replaces life as the buffer you actually rely on, and Reave widens its own area the more you keep swinging — Slayer supplies the leech and area on top.',
+    why: 'the defensive layer comes from gear bases rather than the passive tree, so the tree is free to go all-in on damage.',
+    creator: {
+      name: 'Taaki PoE',
+      channel: 'https://www.youtube.com/@TaakiPoE',
+    },
+    links: {
+      youtube: 'https://www.youtube.com/watch?v=RE_VxXFgar8&t=137s',
+      pob: 'https://pobb.in/kvsngaALSeGO',
+    },
+  },
 ]
 
 const FILTERS: Array<{ key: 'all' | Category; label: string }> = [
@@ -76,7 +96,7 @@ function FarmBuilds() {
     <main className="wh-wrap">
       <div className="wh-page-head">
         <div className="wh-eyebrow">02 · Builds</div>
-        <h1>Late Game Builds</h1>
+        <h1>End Game</h1>
       </div>
 
       <div className="wh-filter-bar" role="group" aria-label="Filter by farm target">

@@ -47,13 +47,13 @@ Not yet configured — no target (Node/Docker, Vercel, Netlify, Cloudflare Worke
 - `tsr.config.json` sets `target: react` — keep in sync if the framework ever changes.
 - `design/` holds the original static-HTML design source (`index.html`, the other screen mockups, `css/tokens.css`, `js/app.js`, `DESIGN-HANDOFF.md`, `DESIGN-MANIFEST.json`). It's reference material only — nothing in `src/` imports from it at runtime.
 
-## Wraeclast Hub homepage (ported from `design/index.html`)
+## POE Waypoint homepage (ported from `design/index.html`)
 
 The home route (`src/routes/index.tsx`) is a faithful SSR port of `design/index.html` — hero, stat strip, and the 6-card "Jump in" nav grid. TanStack Start SSRs by default, so no special config was needed; the two dynamic bits (`To-Do` open-task count, `Bookmarks` count) render their static/`Loading…` fallback on the server and swap to the real `localStorage`-derived value client-side after hydration, via `src/lib/storage.ts` (a typed port of the original `js/app.js`'s `Store.get`/`Store.set`).
 
 - **Styling**: all ported design tokens/classes live in `src/styles.css` under a `wh-`-prefixed section (`.wh-body`, `.wh-topnav`, `.wh-hero`, `.wh-card`, etc.), scoped this way specifically so they can't collide with the pre-existing starter-template tokens/classes (`--sea-ink`, `.island-shell`, `.page-wrap`, ...) that `src/routes/about.tsx` still depends on.
-- **Header/Footer replaced**: `src/components/Header.tsx` and `Footer.tsx` now render the Wraeclast Hub topnav/footer (brand, nav links, mobile toggle) instead of the generic TanStack Start starter chrome, since they're shared globally via `__root.tsx` and the mockup's header/footer are part of every screen. `ThemeToggle.tsx` was deleted — the design is dark-only (`color-scheme: dark`, no light variant), so the light/dark/auto toggle no longer applies.
-- **Known inconsistency**: `/about` is unstyled leftover CLI-scaffold demo content, not part of the Wraeclast Hub design. It still renders (its old tokens/classes were left in `styles.css` untouched), but now sits inside the new dark nav/footer chrome, so it looks visually mismatched. It wasn't in scope for this change — restyle it to match Wraeclast Hub or delete it in a follow-up.
+- **Header/Footer replaced**: `src/components/Header.tsx` and `Footer.tsx` now render the POE Waypoint topnav/footer (brand, nav links, mobile toggle) instead of the generic TanStack Start starter chrome, since they're shared globally via `__root.tsx` and the mockup's header/footer are part of every screen. `ThemeToggle.tsx` was deleted — the design is dark-only (`color-scheme: dark`, no light variant), so the light/dark/auto toggle no longer applies.
+- **Known inconsistency**: `/about` is unstyled leftover CLI-scaffold demo content, not part of the POE Waypoint design. It still renders (its old tokens/classes were left in `styles.css` untouched), but now sits inside the new dark nav/footer chrome, so it looks visually mismatched. It wasn't in scope for this change — restyle it to match POE Waypoint or delete it in a follow-up.
 - **Other screens not yet built**: the nav links point at their intended future routes but those routes don't exist yet, so they currently 404:
   - `builds-league-start.html` → `/builds/league-start`
   - `builds-farm.html` → `/builds/farm`
@@ -68,6 +68,6 @@ The home route (`src/routes/index.tsx`) is a faithful SSR port of `design/index.
 
 1. `pnpm dev` to confirm the app runs locally (verified `pnpm build` succeeds as of this writing).
 2. Implement the remaining 6 screens listed above as their own routes (per `design/DESIGN-MANIFEST.json`'s `screenFilePolicy`: `index.html` is a launcher/overview only, each linked screen must be its own route/surface) — reuse the `wh-card`/`wh-btn`/token vocabulary from `styles.css` and the `storageGet`/`storageSet` helpers in `src/lib/storage.ts` for the To-Do and Bookmarks pages' persistence.
-3. Decide the fate of `/about` (restyle to match Wraeclast Hub, or delete — see gotcha above).
+3. Decide the fate of `/about` (restyle to match POE Waypoint, or delete — see gotcha above).
 4. Pick and wire a deployment target when ready, using the Intent deployment skill.
 5. Consult `pnpm dlx @tanstack/intent@latest list` and the relevant skill before introducing a new library or pattern.

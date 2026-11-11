@@ -3,11 +3,10 @@ import { Link } from '@tanstack/react-router'
 
 const NAV_LINKS = [
   { label: 'League Start', href: '/builds/league-start' },
-  { label: 'Late Game Builds', href: '/builds/farm' },
+  { label: 'End Game', href: '/builds/farm' },
   { label: 'Leveling', href: '/guides/leveling' },
   { label: 'Atlas', href: '/guides/atlas' },
   { label: 'Creators', href: '/creators' },
-  { label: 'To-Do', href: '/todo' },
   { label: 'Bookmarks', href: '/bookmarks' },
 ]
 
@@ -19,7 +18,7 @@ export default function Header() {
       <div className="wh-wrap">
         <Link to="/" className="wh-brand" onClick={() => setOpen(false)}>
           <span className="wh-mark" />
-          Wraeclast Hub
+          POE Waypoint
         </Link>
 
         <ul className={open ? 'wh-navlinks is-open' : 'wh-navlinks'}>

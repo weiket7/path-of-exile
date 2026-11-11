@@ -114,7 +114,7 @@ const STAGES: Array<Stage> = [
         detail: (
           <>
             At this point you're steering your own farm — head back to the{' '}
-            <Link to="/builds/farm">Late Game Builds</Link> list if you want to
+            <Link to="/builds/farm">End Game</Link> list if you want to
             switch specialties.
           </>
         ),

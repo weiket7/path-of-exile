@@ -17,7 +17,7 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Wraeclast Hub — Path of Exile Companion',
+        title: 'POE Waypoint — Path of Exile Companion',
       },
     ],
     links: [

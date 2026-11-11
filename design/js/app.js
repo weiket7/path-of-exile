@@ -1,4 +1,4 @@
-// Wraeclast Hub — shared chrome behavior + storage helpers
+// POE Waypoint — shared chrome behavior + storage helpers
 
 (function () {
   var toggle = document.querySelector('.nav-toggle');

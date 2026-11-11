@@ -58,6 +58,11 @@ const DEFAULT_TOOLS: Array<Tool> = [
     ref: 'https://www.reddit.com/r/pathofexile/comments/1scwteb/cluster_master_find_cheapest_cluster_combo_3_modes/',
   },
   {
+    name: 'Wealthy Exile',
+    url: 'https://wealthyexile.com/',
+    desc: 'Wealth tracker with currency-per-hour stash snapshots, farming strategy profitability, and bulk trade.',
+  },
+  {
     name: 'FilterBlade',
     url: 'https://www.filterblade.xyz/',
     desc: 'Loot filter generator and customizer for every strictness level.',

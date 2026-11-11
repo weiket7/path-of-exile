@@ -15,7 +15,7 @@ const GUIDE_CARDS = [
   },
   {
     idx: '02',
-    title: 'Late Game Builds',
+    title: 'End Game',
     description:
       'Endgame currency, bossing, and juiced-map setups for once your league starter has capped out.',
     href: '/builds/farm',
@@ -46,7 +46,7 @@ function Home() {
         <div className="wh-eyebrow">Wraeclast · League Companion</div>
         <h1>Builds, guides, and your run — in one panel.</h1>
         <p className="wh-lede">
-          Not another wiki mirror. Wraeclast Hub is a working desk for your
+          Not another wiki mirror. POE Waypoint is a working desk for your
           league: vetted league-start and farm builds, act-by-act leveling
           notes, an Atlas completion checklist, and a to-do list that
           remembers what you were doing.
