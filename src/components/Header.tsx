@@ -3,9 +3,10 @@ import { Link } from '@tanstack/react-router'
 
 const NAV_LINKS = [
   { label: 'League Start', href: '/builds/league-start' },
-  { label: 'Farm Builds', href: '/builds/farm' },
+  { label: 'Late Game Builds', href: '/builds/farm' },
   { label: 'Leveling', href: '/guides/leveling' },
   { label: 'Atlas', href: '/guides/atlas' },
+  { label: 'Creators', href: '/creators' },
   { label: 'To-Do', href: '/todo' },
   { label: 'Bookmarks', href: '/bookmarks' },
 ]
@@ -24,9 +25,13 @@ export default function Header() {
         <ul className={open ? 'wh-navlinks is-open' : 'wh-navlinks'}>
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} onClick={() => setOpen(false)}>
+              <Link
+                to={link.href}
+                activeProps={{ className: 'is-active' }}
+                onClick={() => setOpen(false)}
+              >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

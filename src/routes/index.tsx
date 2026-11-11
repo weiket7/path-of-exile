@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { storageGet } from '../lib/storage'
 
@@ -15,7 +15,7 @@ const GUIDE_CARDS = [
   },
   {
     idx: '02',
-    title: 'Farm Builds',
+    title: 'Late Game Builds',
     description:
       'Endgame currency, bossing, and juiced-map setups for once your league starter has capped out.',
     href: '/builds/farm',
@@ -37,7 +37,7 @@ const GUIDE_CARDS = [
     href: '/guides/atlas',
     cta: 'Read guide →',
   },
-]
+] as const
 
 function Home() {
   return (
@@ -52,12 +52,12 @@ function Home() {
           remembers what you were doing.
         </p>
         <div className="wh-hero-actions">
-          <a className="wh-btn wh-btn-primary" href="/builds/league-start">
+          <Link className="wh-btn wh-btn-primary" to="/builds/league-start">
             Start a league build
-          </a>
-          <a className="wh-btn wh-btn-ghost" href="/guides/atlas">
+          </Link>
+          <Link className="wh-btn wh-btn-ghost" to="/guides/atlas">
             Atlas checklist
-          </a>
+          </Link>
         </div>
         <div className="wh-stat-strip">
           <div className="wh-stat">
@@ -88,15 +88,15 @@ function Home() {
         </div>
         <div className="wh-grid-nav">
           {GUIDE_CARDS.map((card) => (
-            <a key={card.href} className="wh-card wh-nav-card" href={card.href}>
+            <Link key={card.href} className="wh-card wh-nav-card" to={card.href}>
               <span className="wh-idx wh-mono">{card.idx}</span>
               <h3>{card.title}</h3>
               <p>{card.description}</p>
               <span className="wh-go">{card.cta}</span>
-            </a>
+            </Link>
           ))}
 
-          <a className="wh-card wh-nav-card" href="/todo">
+          <Link className="wh-card wh-nav-card" to="/todo">
             <span className="wh-idx wh-mono">05</span>
             <h3>To-Do List</h3>
             <p>
@@ -104,9 +104,9 @@ function Home() {
               locally in this browser.
             </p>
             <TodoCount />
-          </a>
+          </Link>
 
-          <a className="wh-card wh-nav-card" href="/bookmarks">
+          <Link className="wh-card wh-nav-card" to="/bookmarks">
             <span className="wh-idx wh-mono">06</span>
             <h3>Bookmarks</h3>
             <p>
@@ -114,7 +114,7 @@ function Home() {
               room to pin your own.
             </p>
             <BookmarkCount />
-          </a>
+          </Link>
         </div>
       </section>
     </main>

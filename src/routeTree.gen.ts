@@ -11,6 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as BookmarksRouteImport } from './routes/bookmarks'
+import { Route as CreatorsRouteImport } from './routes/creators'
+import { Route as TodoRouteImport } from './routes/todo'
+import { Route as BuildsFarmRouteImport } from './routes/builds/farm'
+import { Route as BuildsLeagueStartRouteImport } from './routes/builds/league-start'
+import { Route as GuidesAtlasRouteImport } from './routes/guides/atlas'
+import { Route as GuidesLevelingRouteImport } from './routes/guides/leveling'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +29,122 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookmarksRoute = BookmarksRouteImport.update({
+  id: '/bookmarks',
+  path: '/bookmarks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreatorsRoute = CreatorsRouteImport.update({
+  id: '/creators',
+  path: '/creators',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TodoRoute = TodoRouteImport.update({
+  id: '/todo',
+  path: '/todo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuildsFarmRoute = BuildsFarmRouteImport.update({
+  id: '/builds/farm',
+  path: '/builds/farm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuildsLeagueStartRoute = BuildsLeagueStartRouteImport.update({
+  id: '/builds/league-start',
+  path: '/builds/league-start',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesAtlasRoute = GuidesAtlasRouteImport.update({
+  id: '/guides/atlas',
+  path: '/guides/atlas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesLevelingRoute = GuidesLevelingRouteImport.update({
+  id: '/guides/leveling',
+  path: '/guides/leveling',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/bookmarks': typeof BookmarksRoute
+  '/creators': typeof CreatorsRoute
+  '/todo': typeof TodoRoute
+  '/builds/farm': typeof BuildsFarmRoute
+  '/builds/league-start': typeof BuildsLeagueStartRoute
+  '/guides/atlas': typeof GuidesAtlasRoute
+  '/guides/leveling': typeof GuidesLevelingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/bookmarks': typeof BookmarksRoute
+  '/creators': typeof CreatorsRoute
+  '/todo': typeof TodoRoute
+  '/builds/farm': typeof BuildsFarmRoute
+  '/builds/league-start': typeof BuildsLeagueStartRoute
+  '/guides/atlas': typeof GuidesAtlasRoute
+  '/guides/leveling': typeof GuidesLevelingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/bookmarks': typeof BookmarksRoute
+  '/creators': typeof CreatorsRoute
+  '/todo': typeof TodoRoute
+  '/builds/farm': typeof BuildsFarmRoute
+  '/builds/league-start': typeof BuildsLeagueStartRoute
+  '/guides/atlas': typeof GuidesAtlasRoute
+  '/guides/leveling': typeof GuidesLevelingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/bookmarks'
+    | '/creators'
+    | '/todo'
+    | '/builds/farm'
+    | '/builds/league-start'
+    | '/guides/atlas'
+    | '/guides/leveling'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about'
-  id: '__root__' | '/' | '/about'
+  to:
+    | '/'
+    | '/about'
+    | '/bookmarks'
+    | '/creators'
+    | '/todo'
+    | '/builds/farm'
+    | '/builds/league-start'
+    | '/guides/atlas'
+    | '/guides/leveling'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/bookmarks'
+    | '/creators'
+    | '/todo'
+    | '/builds/farm'
+    | '/builds/league-start'
+    | '/guides/atlas'
+    | '/guides/leveling'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BookmarksRoute: typeof BookmarksRoute
+  CreatorsRoute: typeof CreatorsRoute
+  TodoRoute: typeof TodoRoute
+  BuildsFarmRoute: typeof BuildsFarmRoute
+  BuildsLeagueStartRoute: typeof BuildsLeagueStartRoute
+  GuidesAtlasRoute: typeof GuidesAtlasRoute
+  GuidesLevelingRoute: typeof GuidesLevelingRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +163,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bookmarks': {
+      id: '/bookmarks'
+      path: '/bookmarks'
+      fullPath: '/bookmarks'
+      preLoaderRoute: typeof BookmarksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/creators': {
+      id: '/creators'
+      path: '/creators'
+      fullPath: '/creators'
+      preLoaderRoute: typeof CreatorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/todo': {
+      id: '/todo'
+      path: '/todo'
+      fullPath: '/todo'
+      preLoaderRoute: typeof TodoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/builds/farm': {
+      id: '/builds/farm'
+      path: '/builds/farm'
+      fullPath: '/builds/farm'
+      preLoaderRoute: typeof BuildsFarmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/builds/league-start': {
+      id: '/builds/league-start'
+      path: '/builds/league-start'
+      fullPath: '/builds/league-start'
+      preLoaderRoute: typeof BuildsLeagueStartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/atlas': {
+      id: '/guides/atlas'
+      path: '/guides/atlas'
+      fullPath: '/guides/atlas'
+      preLoaderRoute: typeof GuidesAtlasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/leveling': {
+      id: '/guides/leveling'
+      path: '/guides/leveling'
+      fullPath: '/guides/leveling'
+      preLoaderRoute: typeof GuidesLevelingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BookmarksRoute: BookmarksRoute,
+  CreatorsRoute: CreatorsRoute,
+  TodoRoute: TodoRoute,
+  BuildsFarmRoute: BuildsFarmRoute,
+  BuildsLeagueStartRoute: BuildsLeagueStartRoute,
+  GuidesAtlasRoute: GuidesAtlasRoute,
+  GuidesLevelingRoute: GuidesLevelingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
