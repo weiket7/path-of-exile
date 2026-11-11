@@ -709,6 +709,28 @@ const BUILDS: Array<Build> = [
     },
     lastUpdated: 3.3,
   },
+  {
+    title: "Elementalist Glacial Cascade of the Fissure",
+    classLine: "Witch \u2192 Elementalist",
+    budget: "Low",
+    attr: "int",
+    tags: [
+      { label: "Intelligence", pill: "wh-pill-int" },
+      { label: "Glacial Cascade", pill: "wh-pill-gem" },
+      { label: "Mines", pill: "wh-pill-normal" },
+    ],
+    desc: "You throw mines and detonate a line of ice spikes erupting outward from where they land \u2014 Elementalist adds the exposure and penetration, so the cascade one-shots packs from safety.",
+    why: "mines mean you damage from off-screen and never stand in melee range, and the creator rates it a top league starter even for SSF.",
+    creator: {
+      name: "smokie_777",
+      channel: "https://www.youtube.com/@smokie_777",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=XbPkEupMSbo",
+      pob: "https://poe.ninja/poe1/pob/9244b",
+    },
+    lastUpdated: 3.29,
+  },
 ];
 
 const FILTERS: Array<{ key: "all" | Attribute; label: string }> = [

@@ -37,6 +37,26 @@ const BUILDS: Array<Build> = [
     },
     links: { youtube: 'https://www.youtube.com/watch?v=4JZoTFnCmYI' },
   },
+  {
+    title: 'Juggernaut Strength Stacker',
+    classLine: 'Marauder → Juggernaut',
+    budget: 'High',
+    categories: ['bossing', 'maps'],
+    tags: [
+      { label: 'Strength Stacking', pill: 'wh-pill-gem' },
+      { label: 'Armour / Melee', pill: 'wh-pill-magic' },
+    ],
+    desc: 'Every point of strength is turned into damage, so the gear hunt is one stat repeated across every slot — Juggernaut converts that bulk into armour and unstoppable movement.',
+    why: 'it scales from a few hundred divines to a mirror-tier build on the same tree, and the creator posts a leveling, mid, and final-form tree for each stage.',
+    creator: {
+      name: 'Conner Converse',
+      channel: 'https://www.youtube.com/@ConnerConverse',
+    },
+    links: {
+      youtube: 'https://www.youtube.com/watch?v=Y6cexf0BP4Q',
+      pob: 'https://pobb.in/Kvl1jpKGgk2G',
+    },
+  },
 ]
 
 const FILTERS: Array<{ key: 'all' | Category; label: string }> = [
