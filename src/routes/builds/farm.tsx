@@ -120,6 +120,8 @@ const BUILDS: Array<Build> = [
   },
 ]
 
+export const FARM_COUNT = BUILDS.length
+
 const FILTERS: Array<{ key: 'all' | Category; label: string }> = [
   { key: 'all', label: 'All' },
   { key: 'bossing', label: 'Bossing' },

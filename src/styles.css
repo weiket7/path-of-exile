@@ -770,6 +770,24 @@ a {
   border-color: var(--wh-accent);
   transform: translateY(-2px);
 }
+.wh-nav-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.wh-nav-card .wh-card-count {
+  color: var(--wh-accent);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.wh-nav-card .wh-card-count b {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  margin-right: 4px;
+}
 .wh-nav-card .wh-idx {
   font-family: var(--wh-font-mono);
   font-size: 12px;

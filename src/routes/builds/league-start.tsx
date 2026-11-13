@@ -973,6 +973,8 @@ const BUILDS: Array<Build> = [
   },
 ];
 
+export const LEAGUE_START_COUNT = BUILDS.length;
+
 const FILTERS: Array<{ key: "all" | Attribute; label: string }> = [
   { key: "all", label: "All" },
   { key: "str", label: "Strength" },
@@ -990,7 +992,7 @@ function LeagueStartBuilds() {
     <main className="wh-wrap">
       <div className="wh-page-head">
         <div className="wh-eyebrow">01 · Builds</div>
-        <h1>League-Start Builds</h1>
+        <h1>League Starters</h1>
       </div>
 
       <div

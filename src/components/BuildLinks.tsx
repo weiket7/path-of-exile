@@ -7,6 +7,7 @@ export interface BuildLinkSet {
   youtube?: string
   written?: string
   pob?: string
+  tree?: string
   site?: string
 }
 
@@ -14,6 +15,7 @@ const LINK_KINDS: Array<{ key: keyof BuildLinkSet; label: string }> = [
   { key: 'youtube', label: 'YouTube' },
   { key: 'written', label: 'Written guide' },
   { key: 'pob', label: 'Path of Building' },
+  { key: 'tree', label: 'Atlas tree' },
   { key: 'site', label: 'Website' },
 ]
 

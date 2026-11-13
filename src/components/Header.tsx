@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { label: 'League Start', href: '/builds/league-start' },
   { label: 'End Game', href: '/builds/farm' },
   { label: 'Leveling', href: '/guides/leveling' },
-  { label: 'Atlas', href: '/guides/atlas' },
+  { label: 'Atlas Trees', href: '/guides/atlas' },
   { label: 'Creators', href: '/creators' },
   { label: 'Bookmarks', href: '/bookmarks' },
 ]

@@ -1,17 +1,22 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { storageGet } from '../lib/storage'
+import { LEAGUE_START_COUNT } from './builds/league-start'
+import { FARM_COUNT } from './builds/farm'
+import { ATLAS_TREE_COUNT } from './guides/atlas'
 
 export const Route = createFileRoute('/')({ component: Home })
 
 const GUIDE_CARDS = [
   {
     idx: '01',
-    title: 'League-Start Builds',
+    title: 'League Starters',
     description:
-      'Six budget-safe builds tuned for act clear and the first map tiers, one per attribute archetype.',
+      'Budget-safe builds tuned for act clear and the first map tiers, across all three attribute archetypes.',
     href: '/builds/league-start',
     cta: 'View builds →',
+    count: LEAGUE_START_COUNT,
+    countLabel: 'builds',
   },
   {
     idx: '02',
@@ -20,6 +25,8 @@ const GUIDE_CARDS = [
       'Endgame currency, bossing, and juiced-map setups for once your league starter has capped out.',
     href: '/builds/farm',
     cta: 'View builds →',
+    count: FARM_COUNT,
+    countLabel: 'builds',
   },
   {
     idx: '03',
@@ -31,11 +38,13 @@ const GUIDE_CARDS = [
   },
   {
     idx: '04',
-    title: 'Atlas Completion',
+    title: 'Atlas Trees',
     description:
       'Atlas passive tree priorities, Voidstones, the Conquerors, and what to run before red maps.',
     href: '/guides/atlas',
     cta: 'Read guide →',
+    count: ATLAS_TREE_COUNT,
+    countLabel: 'trees',
   },
 ] as const
 
@@ -59,37 +68,20 @@ function Home() {
             Atlas checklist
           </Link>
         </div>
-        <div className="wh-stat-strip">
-          <div className="wh-stat">
-            <b className="wh-mono">6</b>
-            <span>League-start builds</span>
-          </div>
-          <div className="wh-stat">
-            <b className="wh-mono">6</b>
-            <span>Farm builds</span>
-          </div>
-          <div className="wh-stat">
-            <b className="wh-mono">2</b>
-            <span>Core guides</span>
-          </div>
-          <div className="wh-stat">
-            <b className="wh-mono">8</b>
-            <span>Bookmarked tools</span>
-          </div>
-        </div>
       </section>
 
       <section className="wh-wrap">
-        <div className="wh-section-head">
-          <h2>Jump in</h2>
-          <span className="wh-mono" style={{ color: 'var(--wh-muted)', fontSize: 13 }}>
-            6 sections
-          </span>
-        </div>
         <div className="wh-grid-nav">
           {GUIDE_CARDS.map((card) => (
             <Link key={card.href} className="wh-card wh-nav-card" to={card.href}>
-              <span className="wh-idx wh-mono">{card.idx}</span>
+              <div className="wh-nav-card-top">
+                <span className="wh-idx wh-mono">{card.idx}</span>
+                {'count' in card ? (
+                  <span className="wh-card-count wh-mono">
+                    <b>{card.count}</b> {card.countLabel}
+                  </span>
+                ) : null}
+              </div>
               <h3>{card.title}</h3>
               <p>{card.description}</p>
               <span className="wh-go">{card.cta}</span>
