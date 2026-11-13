@@ -20,6 +20,7 @@ interface Build {
   creator?: Creator;
   links?: BuildLinkSet;
   lastUpdated?: number;
+  ssf?: boolean;
 }
 
 const BUILDS: Array<Build> = [
@@ -62,7 +63,7 @@ const BUILDS: Array<Build> = [
       name: "Path of Evening",
       channel: "https://www.youtube.com/@PathofEvening",
     },
-    links: { youtube: "https://www.youtube.com/watch?v=Nr4GR0v_KWw" },
+    links: { youtube: "https://www.youtube.com/watch?v=GsDMr2NZRao" },
   },
   {
     title: "Slayer Cyclone",
@@ -370,10 +371,11 @@ const BUILDS: Array<Build> = [
       channel: "https://www.youtube.com/@anime.princess",
     },
     links: {
-      youtube: "https://www.youtube.com/watch?v=EOjw8h43-bk",
+      youtube: "https://www.youtube.com/watch?v=X3xQR9gM95E",
       written:
-        "https://mobalytics.gg/poe/profile/animeprincess/builds/ignite-elementalist-league-starter-atanimeprincess",
+        "https://mobalytics.gg/poe/builds/penance-brand-ignite-elementalist-league-starter",
     },
+    lastUpdated: 3.3,
   },
   {
     title: "Guardian Holy Absolution",
@@ -484,11 +486,12 @@ const BUILDS: Array<Build> = [
       channel: "https://www.youtube.com/@Zizaran",
     },
     links: {
-      youtube: "https://www.youtube.com/watch?v=ThANqlWYJ98",
+      youtube: "https://www.youtube.com/watch?v=vV8Z7MELGno",
       written:
         "https://maxroll.gg/poe/build-guides/boneshatter-juggernaut-league-starter",
-      pob: "https://maxroll.gg/poe/pob/tcjqpe0t",
+      pob: "https://pobb.in/qRFk_VlQJyRx",
     },
+    lastUpdated: 3.3,
   },
   {
     title: "Necromancer Holy Relic of Conviction",
@@ -538,8 +541,8 @@ const BUILDS: Array<Build> = [
     lastUpdated: 3.3,
   },
   {
-    title: "Elementalist Lightning Tendrils of Escalation",
-    classLine: "Witch → Elementalist",
+    title: "Elementalist Lightning Tendrils",
+    classLine: "Witch \u2192 Elementalist",
     budget: "Low",
     attr: "int",
     tags: [
@@ -547,16 +550,83 @@ const BUILDS: Array<Build> = [
       { label: "Lightning Tendrils", pill: "wh-pill-gem" },
       { label: "Channelled", pill: "wh-pill-normal" },
     ],
-    desc: "A channelled beam that gets stronger the longer you hold it, so damage ramps inside each pack — Elementalist adds the exposure and shock that make the ramp land harder.",
-    why: "it is a single gem with no unique requirement, so the whole campaign runs on a leveling wand and the tree.",
+    desc: "Hold the button and the beam sweeps through packs, building damage as it goes \u2014 Elementalist layers on exposure, shock and the ailment scaling that makes a starter gem keep pace.",
+    why: "no unique items gate it, so the campaign runs on a vendor wand and the tree, and the build carries straight into maps.",
     creator: {
-      name: "Master T",
-      channel: "https://www.youtube.com/@MasterT_",
+      name: "Peuget2",
+      channel: "https://www.youtube.com/@Peuget2",
     },
     links: {
-      youtube: "https://www.youtube.com/watch?v=eQPwM0HqSdY",
+      youtube: "https://www.youtube.com/watch?v=sOKiVtyhb8M&t=7s",
       written:
-        "https://mobalytics.gg/poe/profile/mastert/builds/3-29-masterts-whispering-tendrils-elementalist",
+        "https://mobalytics.gg/poe/builds/3-30-lightning-tendrils-elementalist-league-starter-to-endagme-peuget2",
+      pob: "https://pobb.in/DHfvz2YTS66W",
+    },
+    lastUpdated: 3.3,
+  },
+  {
+    title: "Deadeye Lightning Arrow",
+    classLine: "Ranger \u2192 Deadeye",
+    budget: "Low",
+    attr: "dex",
+    tags: [
+      { label: "Dexterity", pill: "wh-pill-dex" },
+      { label: "Lightning Arrow", pill: "wh-pill-gem" },
+      { label: "Bow / Clear", pill: "wh-pill-normal" },
+    ],
+    desc: "Every shot chains lightning into nearby enemies, so one arrow clears a pack \u2014 Deadeye adds the extra projectiles, chain range and movement speed that turn it into a screen-wide sweep.",
+    why: "a classic bow starter: the gem does the work from Act 1, the gear is cheap, and the clear speed holds up well past the campaign.",
+    creator: {
+      name: "Fubgun",
+      channel: "https://www.youtube.com/@Fubgun",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=P0ehhV6elVc",
+      pob: "https://pobb.in/N3gYgW-Ws4IK",
+    },
+  },
+  {
+    title: "Necromancer Kinetic Blast of Clustering",
+    classLine: "Witch \u2192 Necromancer",
+    budget: "Low",
+    attr: "int",
+    tags: [
+      { label: "Intelligence", pill: "wh-pill-int" },
+      { label: "Kinetic Blast", pill: "wh-pill-gem" },
+      { label: "Wand / Clear", pill: "wh-pill-normal" },
+    ],
+    desc: "Each wand shot bursts into a cluster of explosions on impact, so a single attack shreds a whole pack \u2014 Necromancer backs it with minions that tank and recover for you.",
+    why: "wand damage scales off cheap flat-damage rolls rather than a rare weapon, and the minions cover the defensive gap a caster-weapon starter usually has.",
+    creator: {
+      name: "Redviles",
+      channel: "https://www.youtube.com/@Redviles",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=edJQ1WpwemM",
+      pob: "https://pobb.in/xVLnbNvWGRC4",
+    },
+  },
+  {
+    title: "Elementalist Explosive Trap",
+    classLine: "Witch \u2192 Elementalist",
+    budget: "Low",
+    attr: "int",
+    tags: [
+      { label: "Intelligence", pill: "wh-pill-int" },
+      { label: "Explosive Trap", pill: "wh-pill-gem" },
+      { label: "Traps / Fire", pill: "wh-pill-normal" },
+    ],
+    desc: "You throw traps that detonate in overlapping blasts, so the damage lands before anything reaches you \u2014 Elementalist adds exposure and ignite scaling on top of the explosions.",
+    why: "trap damage comes from the gem and the tree rather than a weapon, so nothing in the campaign gear-checks you and it stays safe at range.",
+    creator: {
+      name: "Peuget2",
+      channel: "https://www.youtube.com/@Peuget2",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=N3_KGsPcqEQ",
+      written:
+        "https://mobalytics.gg/poe/builds/explosive-trap-elementalist-league-starter-to-endgame-peuget2",
+      pob: "https://pobb.in/RYU3xSuvoxbN",
     },
   },
   {
@@ -742,6 +812,165 @@ const BUILDS: Array<Build> = [
     },
     lastUpdated: 3.29,
   },
+  {
+    title: "Elementalist Incinerate of Venting",
+    classLine: "Witch \u2192 Elementalist",
+    budget: "Low",
+    attr: "int",
+    tags: [
+      { label: "Intelligence", pill: "wh-pill-int" },
+      { label: "Incinerate", pill: "wh-pill-gem" },
+      { label: "Fire / Channel", pill: "wh-pill-normal" },
+    ],
+    desc: "Channel a cone of fire that builds stages and vents them as a burst \u2014 Elementalist stacks exposure, ignite and elemental penetration behind it so the damage holds up without any unique.",
+    why: "pure gem damage on a self-found gear budget, and the creator builds and tests it as an SSF starter from act 1 to maps.",
+    creator: {
+      name: "smokie_777",
+      channel: "https://www.youtube.com/@smokie_777",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=2NYMoUk7LIM",
+      pob: "https://pobb.in/WBamNpUW03yL",
+    },
+    lastUpdated: 3.3,
+    ssf: true,
+  },
+  {
+    title: "Slayer Frost Blades",
+    classLine: "Duelist \u2192 Slayer",
+    budget: "Low",
+    attr: "dex",
+    tags: [
+      { label: "Dexterity", pill: "wh-pill-dex" },
+      { label: "Frost Blades", pill: "wh-pill-gem" },
+      { label: "Melee / Cold", pill: "wh-pill-normal" },
+    ],
+    desc: "Melee strikes that shatter into cold projectiles, so packs die a screen away while you fight the one in front of you \u2014 Slayer adds overleech, culling and area on top.",
+    why: "projectile clear off a cheap one-hander means no unique gates the acts, and Slayer\u2019s leech keeps you upright on starter gear.",
+    creator: {
+      name: "Fuzzy Duckzy Gaming",
+      channel: "https://www.youtube.com/@FuzzyDuckzy",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=tRks4P42xvc",
+      pob: "https://pobb.in/YKZKFYDoBjCS",
+    },
+    lastUpdated: 3.3,
+  },
+  {
+    title: "Juggernaut Strength Stacker",
+    classLine: "Marauder \u2192 Juggernaut",
+    budget: "Low",
+    attr: "str",
+    tags: [
+      { label: "Strength", pill: "wh-pill-str" },
+      { label: "Attribute Stacking", pill: "wh-pill-unique" },
+      { label: "Melee", pill: "wh-pill-normal" },
+    ],
+    desc: "Every point of strength feeds both your life pool and your damage, so one stat carries the whole character \u2014 Juggernaut layers armour, endurance charges and stun immunity over the top.",
+    why: "stacking a single attribute keeps gearing simple on a fresh league, and the creator builds it self-found from scratch.",
+    creator: {
+      name: "EXILED CAT",
+      channel: "https://www.youtube.com/@ExiledCat_PoE",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=Oo7j-hC1ELk",
+    },
+    lastUpdated: 3.29,
+    ssf: true,
+  },
+  {
+    title: "Elementalist Wintertide Brand Cold DoT",
+    classLine: "Witch \u2192 Elementalist",
+    budget: "Low",
+    attr: "int",
+    tags: [
+      { label: "Intelligence", pill: "wh-pill-int" },
+      { label: "Wintertide Brand", pill: "wh-pill-gem" },
+      { label: "Cold DoT", pill: "wh-pill-unique" },
+    ],
+    desc: "Brands attach to enemies and tick cold damage over time that ramps the longer they stay on, so you tag a pack and walk \u2014 Elementalist adds exposure and the ailment scaling the degen rides on.",
+    why: "damage over time ignores accuracy and crit entirely, so a league-start wand carries the acts, and you never stand next to what you are killing.",
+    creator: {
+      name: "theslinkyshadow",
+      channel: "https://www.youtube.com/@theslinkyshadow",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=izPrW6_V2Nc",
+      written:
+        "https://mobalytics.gg/poe/profile/theslinkyshadow-ia03r5/builds/3b2663ce-6a16-4f99-9aeb-4dbe1b2ae276",
+      pob: "https://pobb.in/IMORgcX8qby_",
+    },
+    lastUpdated: 3.3,
+  },
+  {
+    title: "Slayer Bleed Bow",
+    classLine: "Duelist \u2192 Slayer",
+    budget: "Low",
+    attr: "dex",
+    tags: [
+      { label: "Dexterity", pill: "wh-pill-dex" },
+      { label: "Bleed", pill: "wh-pill-unique" },
+      { label: "Bow / DoT", pill: "wh-pill-normal" },
+    ],
+    desc: "Arrows apply bleed and the target dies to the degen after you have already moved on \u2014 Slayer adds the bleed scaling, overleech and culling that carry it from act 1 into maps.",
+    why: "bleed scales off a plain physical bow rather than a unique or crit chain, so the acts run on whatever drops and bosses still melt from range.",
+    creator: {
+      name: "JayTX",
+      channel: "https://www.youtube.com/@JayTX",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=PCPAVtYgEMI",
+      written: "https://maxroll.gg/poe/planner/ydnjwr0t",
+      pob: "https://pobb.in/eFxtoS1M_yVM",
+    },
+    lastUpdated: 3.3,
+  },
+  {
+    title: "Necromancer Poison Ranged Animate Weapon",
+    classLine: "Witch \u2192 Necromancer",
+    budget: "Low",
+    attr: "int",
+    tags: [
+      { label: "Intelligence", pill: "wh-pill-int" },
+      { label: "Animate Weapon", pill: "wh-pill-gem" },
+      { label: "Minions / Poison", pill: "wh-pill-unique" },
+    ],
+    desc: "Animated weapons fight for you at range and stack poison on everything they hit \u2014 Necromancer keeps the army alive and scales the chaos damage over time behind it.",
+    why: "the minions soak the danger and poison does the killing, so a fresh character clears the acts without needing gear on the player at all.",
+    creator: {
+      name: "Sleepy Cat",
+      channel: "https://www.youtube.com/@MisterSleepyCat",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=DD5NUutEuPI",
+      pob: "https://pobb.in/7qRxhuedkhHw",
+    },
+    lastUpdated: 3.3,
+  },
+  {
+    title: "Luminary Merc Bot",
+    classLine: "Scion \u2192 Luminary",
+    budget: "Low",
+    attr: "int",
+    tags: [
+      { label: "Intelligence", pill: "wh-pill-int" },
+      { label: "Mercenary", pill: "wh-pill-unique" },
+      { label: "Link Buffs", pill: "wh-pill-normal" },
+    ],
+    desc: "Your hired mercenary does the killing while you hold link skills on them \u2014 Luminary pushes its link buffs onto the mercenary, turning a follower into the build\u2019s whole damage source.",
+    why: "the mercenary carries the acts, so your own gear barely matters and the dangerous parts of a fresh league happen to someone else.",
+    creator: {
+      name: "CaptainLance9",
+      channel: "https://www.youtube.com/@CaptainLance9",
+    },
+    links: {
+      youtube: "https://www.youtube.com/watch?v=a5RWEyNW_DU",
+      written: "https://mobalytics.gg/poe/builds/captainlance9-luminary-merc-bot",
+      pob: "https://pobb.in/Gn2Xs2QLjGGz",
+    },
+    lastUpdated: 3.3,
+  },
 ];
 
 const FILTERS: Array<{ key: "all" | Attribute; label: string }> = [
@@ -803,6 +1032,9 @@ function LeagueStartBuilds() {
                   {tag.label}
                 </span>
               ))}
+              {build.ssf ? (
+                <span className="wh-pill wh-pill-unique">SSF</span>
+              ) : null}
             </div>
             <p className="wh-desc">{build.desc}</p>
             <p className="wh-why">

@@ -77,6 +77,47 @@ const BUILDS: Array<Build> = [
       pob: 'https://pobb.in/kvsngaALSeGO',
     },
   },
+  {
+    title: 'Elementalist Lightning Tendrils of Escalation',
+    classLine: 'Witch → Elementalist',
+    budget: 'Low',
+    categories: ['maps'],
+    tags: [
+      { label: 'Lightning Tendrils', pill: 'wh-pill-gem' },
+      { label: 'Channelled', pill: 'wh-pill-magic' },
+    ],
+    desc: 'A channelled beam that gets stronger the longer you hold it, so damage ramps inside each pack — Elementalist adds the exposure and shock that make the ramp land harder.',
+    why: 'it is a single gem with no unique requirement, so the whole build runs on the tree rather than a gear checklist.',
+    creator: {
+      name: 'Master T',
+      channel: 'https://www.youtube.com/@MasterT_',
+    },
+    links: {
+      youtube: 'https://www.youtube.com/watch?v=ns-gb3WjkcQ',
+      written:
+        'https://mobalytics.gg/poe/profile/mastert/builds/3-29-masterts-whispering-tendrils-elementalist',
+    },
+  },
+  {
+    title: 'Luminary Spark',
+    classLine: 'Scion \u2192 Luminary',
+    budget: 'High',
+    categories: ['bossing', 'maps'],
+    tags: [
+      { label: 'Spark', pill: 'wh-pill-gem' },
+      { label: 'Lightning / Projectile', pill: 'wh-pill-magic' },
+    ],
+    desc: 'Spark floods the room with lightning projectiles that bounce off walls, so packs and bosses both take hits you never had to aim \u2014 Luminary scales it into the billion-DPS range.',
+    why: 'the projectiles do the positioning for you, which keeps the clear fast in maps while the same setup still deletes pinnacle bosses.',
+    creator: {
+      name: 'Conner Converse',
+      channel: 'https://www.youtube.com/@ConnerConverse',
+    },
+    links: {
+      youtube: 'https://www.youtube.com/watch?v=CxkRXTh_i6c',
+      pob: 'https://pobb.in/2J3BhaI2H3xz',
+    },
+  },
 ]
 
 const FILTERS: Array<{ key: 'all' | Category; label: string }> = [

@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BookmarksRouteImport } from './routes/bookmarks'
 import { Route as CreatorsRouteImport } from './routes/creators'
+import { Route as PatchNotesRouteImport } from './routes/patch-notes'
 import { Route as TodoRouteImport } from './routes/todo'
 import { Route as BuildsFarmRouteImport } from './routes/builds/farm'
 import { Route as BuildsLeagueStartRouteImport } from './routes/builds/league-start'
@@ -37,6 +38,11 @@ const BookmarksRoute = BookmarksRouteImport.update({
 const CreatorsRoute = CreatorsRouteImport.update({
   id: '/creators',
   path: '/creators',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PatchNotesRoute = PatchNotesRouteImport.update({
+  id: '/patch-notes',
+  path: '/patch-notes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TodoRoute = TodoRouteImport.update({
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/bookmarks': typeof BookmarksRoute
   '/creators': typeof CreatorsRoute
+  '/patch-notes': typeof PatchNotesRoute
   '/todo': typeof TodoRoute
   '/builds/farm': typeof BuildsFarmRoute
   '/builds/league-start': typeof BuildsLeagueStartRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/bookmarks': typeof BookmarksRoute
   '/creators': typeof CreatorsRoute
+  '/patch-notes': typeof PatchNotesRoute
   '/todo': typeof TodoRoute
   '/builds/farm': typeof BuildsFarmRoute
   '/builds/league-start': typeof BuildsLeagueStartRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/bookmarks': typeof BookmarksRoute
   '/creators': typeof CreatorsRoute
+  '/patch-notes': typeof PatchNotesRoute
   '/todo': typeof TodoRoute
   '/builds/farm': typeof BuildsFarmRoute
   '/builds/league-start': typeof BuildsLeagueStartRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/bookmarks'
     | '/creators'
+    | '/patch-notes'
     | '/todo'
     | '/builds/farm'
     | '/builds/league-start'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/bookmarks'
     | '/creators'
+    | '/patch-notes'
     | '/todo'
     | '/builds/farm'
     | '/builds/league-start'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/bookmarks'
     | '/creators'
+    | '/patch-notes'
     | '/todo'
     | '/builds/farm'
     | '/builds/league-start'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BookmarksRoute: typeof BookmarksRoute
   CreatorsRoute: typeof CreatorsRoute
+  PatchNotesRoute: typeof PatchNotesRoute
   TodoRoute: typeof TodoRoute
   BuildsFarmRoute: typeof BuildsFarmRoute
   BuildsLeagueStartRoute: typeof BuildsLeagueStartRoute
@@ -175,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/creators'
       fullPath: '/creators'
       preLoaderRoute: typeof CreatorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/patch-notes': {
+      id: '/patch-notes'
+      path: '/patch-notes'
+      fullPath: '/patch-notes'
+      preLoaderRoute: typeof PatchNotesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/todo': {
@@ -220,6 +240,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BookmarksRoute: BookmarksRoute,
   CreatorsRoute: CreatorsRoute,
+  PatchNotesRoute: PatchNotesRoute,
   TodoRoute: TodoRoute,
   BuildsFarmRoute: BuildsFarmRoute,
   BuildsLeagueStartRoute: BuildsLeagueStartRoute,

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
 
 const NAV_LINKS = [
+  { label: '3.30 Patch Notes', href: '/patch-notes' },
   { label: 'League Start', href: '/builds/league-start' },
   { label: 'End Game', href: '/builds/farm' },
   { label: 'Leveling', href: '/guides/leveling' },
